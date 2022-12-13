@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    {% block content-1 %}
+
+    {% for v in post %}
+    <h1>{{v.title}}</h1>
+    {% endfor %}
+    {% endblock content-1 %}
+
+    <hr>
+
+    <h1>ini adalah form</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <table>{{classform.as_table}}</table>
+        <label for="">isi nama</label>
+        <input type="text" id="nama" name="nama">
+        <label for="">isi alamatmu</label>
+        <input type="text" id="alamat" name="alamat">
+        <button type="submit">kirim</button>
+    </form>
+    <h2>ini namamu {{nama}} atao {{namac}}</h2>
+    <h2>alamatmu {{alamat}}atao {{alamatc}}</h2>
+
+    <ul>
+        <li><a href="{% url 'index' %}">home</a></li>
+        <li><a href="{% url 'blogs:index' %}">blogs</a></li>
+        <li><a href="{% url 'about:index' %}">about</a></li>
+        <li><a href="{% url 'form' %}">form</a></li>
+    </ul>
+</body>
+
+</html>

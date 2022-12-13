@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>{{ heading }}</h1>
+<h2>{{ subheading }}</h2>
+<div>
+    {% block content-1 %}
+        {% for v in post %}
+            <h3>{{ v.title }}</h3>
+            <p>{{ v.blog }}</p>
+        {% endfor %}
+
+
+    {% endblock content-1 %}
+</div>
+
+<a href="addpost/"><button>Add Post</button></a>
+
+</body>
+</html>
